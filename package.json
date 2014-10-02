@@ -1,14 +1,15 @@
 {
   "name": "mocha",
   "main": "./lib/mocha",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Mocha integrated within atom",
-  "activationEvents": ["mocha:toggle"],
+  "activationEvents": [
+    "mocha:toggle"
+  ],
   "repository": "https://github.com/jerp/mocha",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
