@@ -1,0 +1,14 @@
+{
+  "name": "mocha within atom",
+  "main": "./lib/mocha",
+  "version": "0.0.0",
+  "description": "Mocha, the test framework, integrated within atom",
+  "activationEvents": ["mocha:toggle"],
+  "repository": "https://github.com/atom/mocha",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
