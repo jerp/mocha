@@ -1,7 +1,7 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-      'Enable mocha': 'mocha:toggle'
+      'Test with mocha': 'mocha:test'
 
 'menu': [
   {
@@ -9,7 +9,7 @@
     'submenu': [
       'label': 'mocha'
       'submenu': [
-        { 'label': 'Toggle', 'command': 'mocha:toggle' }
+        { 'label': 'Run Test Suite', 'command': 'mocha:test' }
       ]
     ]
   }

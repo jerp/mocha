@@ -3,13 +3,28 @@
   "main": "./lib/mocha",
   "version": "0.0.1",
   "description": "Mocha integrated within atom",
-  "activationEvents": [
-    "mocha:toggle"
-  ],
-  "repository": "https://github.com/jerp/mocha",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jerp/mocha"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "mocha": "1.21.4",
+    "chai": "1.9.2"
+  },
+  "readme": "# Mocha within atom\n\nMocha, the test framework, integrated within atom\n\nno use of nodejs, so debugger is possible\n\n![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jerp/mocha/issues"
+  },
+  "homepage": "https://github.com/jerp/mocha",
+  "_id": "mocha@0.0.1",
+  "dist": {
+    "shasum": "11446ac4562aa1d3461aafdb28cf832cb8ae4f2b"
+  },
+  "_resolved": "/private/var/folders/dh/h4w9jh653k9gs27p1pl_v2280000gp/T/d-11492-18458-7cijhx/package.tgz",
+  "_from": "/private/var/folders/dh/h4w9jh653k9gs27p1pl_v2280000gp/T/d-11492-18458-7cijhx/package.tgz"
 }
