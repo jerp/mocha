@@ -57,5 +57,5 @@ module.exports =
           @pre class: "error", =>
             @raw errorstr
 
-      testFiles.forEach (file) ->
-        delete require.cache[path.join(specDir, file)]
+      for file of require.cache
+        delete require.cache[file] if file.startsWith(projectDir)
