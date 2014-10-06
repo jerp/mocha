@@ -48,7 +48,6 @@ module.exports =
         extensions = for ext in extensions then ext.trim()
       else
         extensions = [".coffee", ".js"]
-      debugger
       testFiles = fs.listTreeSync(specDir)
       testFiles = fs.filterExtensions(testFiles, extensions)
       Mocha = require 'mocha'

@@ -1,3 +1,5 @@
+## 0.0.3 - Bug fix
+* fix dependency on fs-plus
 ## 0.0.4 - Small improvments
 * save all before runing a test
 * search recursively in spec folder
