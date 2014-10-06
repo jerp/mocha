@@ -1,5 +1,7 @@
 ## 0.0.4 - Small improvments
 * save all before runing a test
+* search recursively in spec folder
+* allow file extension filter
 * no chache of projects scripts (avoid reload all)
 ## 0.0.3 - Bug fix
 * display coffescript syntax error

@@ -5,6 +5,7 @@ module.exports =
   configDefaults:
     specDirectory: './spec/'
     saveAllBeforeTest: true
+    filterExtensions: ".coffee, .js"
   activate: (state) ->
     @mochaView = new MochaView(state.mochaViewState)
     atom.workspaceView.on 'core:cancel core:close', (event) =>

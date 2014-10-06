@@ -39,16 +39,23 @@ module.exports =
 
     test: ->
       @resetView()
-      fs   = require 'fs'
       @saveAll()
+      fs   = require 'fs-plus'
       path = require 'path'
-      specDir = path.join(atom.project.getPath(), atom.config.get('mocha.specDirectory'))
-      testFiles = fs.readdirSync(specDir)
+      projectDir = atom.project.getPath()
+      specDir = path.join(projectDir, atom.config.get('mocha.specDirectory'))
+      if (extensions =  atom.config.get('mocha.filterExtensions')?.split(',')) and extensions?.length
+        extensions = for ext in extensions then ext.trim()
+      else
+        extensions = [".coffee", ".js"]
+      debugger
+      testFiles = fs.listTreeSync(specDir)
+      testFiles = fs.filterExtensions(testFiles, extensions)
       Mocha = require 'mocha'
       mocha = new Mocha(reporter: Mocha.reporters.HTML)
       window.chai = require 'chai' #quick and dirty
       testFiles.forEach (file) ->
-        mocha.addFile path.join(specDir, file)
+        mocha.addFile file
       try
         mocha.run()
       catch error
