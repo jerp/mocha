@@ -1,3 +1,5 @@
+## 0.0.4 - Small improvments
+* save all before runing a test
 ## 0.0.3 - Bug fix
 * display coffescript syntax error
 * set max height for console

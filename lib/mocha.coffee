@@ -4,6 +4,7 @@ module.exports =
   mochaView: null
   configDefaults:
     specDirectory: './spec/'
+    saveAllBeforeTest: true
   activate: (state) ->
     @mochaView = new MochaView(state.mochaViewState)
     atom.workspaceView.on 'core:cancel core:close', (event) =>

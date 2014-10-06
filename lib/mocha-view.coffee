@@ -33,9 +33,14 @@ module.exports =
       # Get script view ready
       @output.empty()
 
+    saveAll: ->
+      return unless atom.config.get('mocha.saveAllBeforeTest')
+      atom.project.buffers.forEach (buffer) -> buffer.save() if buffer.isModified() and buffer.file?
+
     test: ->
       @resetView()
       fs   = require 'fs'
+      @saveAll()
       path = require 'path'
       specDir = path.join(atom.project.getPath(), atom.config.get('mocha.specDirectory'))
       testFiles = fs.readdirSync(specDir)
