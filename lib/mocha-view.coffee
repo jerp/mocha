@@ -5,7 +5,7 @@ module.exports =
 
     @content: ->
       @div =>
-        css = 'tool-panel panel-bottom padding native-key-bindings'
+        css = 'tool-panel pannel panel-bottom padding native-key-bindings'
         @div class: css, outlet: 'script', tabindex: -1, =>
           @div id: 'mocha', class: 'panel-body padded output', outlet: 'output'
 
@@ -41,8 +41,16 @@ module.exports =
       testFiles = fs.readdirSync(specDir)
       Mocha = require 'mocha'
       mocha = new Mocha(reporter: Mocha.reporters.HTML)
+      window.chai = require 'chai' #quick and dirty
       testFiles.forEach (file) ->
         mocha.addFile path.join(specDir, file)
-      mocha.run()
+      try
+        mocha.run()
+      catch error
+        errorstr = error.stack or error.toString()
+        @output.append $$ ->
+          @pre class: "error", =>
+            @raw errorstr
+
       testFiles.forEach (file) ->
         delete require.cache[path.join(specDir, file)]
