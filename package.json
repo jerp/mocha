@@ -1,7 +1,7 @@
 {
   "name": "mocha",
   "main": "./lib/mocha",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Mocha integrated within atom",
   "repository": {
     "type": "git",
