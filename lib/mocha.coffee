@@ -1,18 +1,26 @@
+{CompositeDisposable} = require 'atom'
 MochaView = require './mocha-view'
 
 module.exports =
   mochaView: null
-  configDefaults:
-    specDirectory: './spec/'
-    saveAllBeforeTest: true
-    filterExtensions: ".coffee, .js"
+  config:
+    specDirectory:
+      type: 'string',
+      default: './spec/'
+    saveAllBeforeTest:
+      type: 'boolean',
+      default: true
+    filterExtensions:
+      type: 'string',
+      default: ".coffee, .js"
   activate: (state) ->
+    @subscriptions = new CompositeDisposable
     @mochaView = new MochaView(state.mochaViewState)
-    atom.workspaceView.on 'core:cancel core:close', (event) =>
-      @mochaView?.close()
+    @subscriptions.add atom.commands.add 'atom-workspace',
+      'core:close': => @mochaView?.close()
+      'core:cancel': => @mochaView?.close()
   deactivate: ->
-    if @mochaView
-      @mochaView.destroy()
-      atom.workspaceView.off 'core:cancel core:close'
+    @mochaView.destroy()
+    @subscriptions.dispose()
   serialize: ->
     mochaViewState: @mochaView?.serialize?()
